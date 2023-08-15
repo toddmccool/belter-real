@@ -19,192 +19,195 @@
     <pre id="outputText"></pre>
 
     <script>
-            const replacements = {
-              show: "shuah ",
-              "don't": "(h)dunt",
-              "can't": "gund",
-              "Can't": "gund",
-              dont: "(h)doo-ant",
-              cant: "gund",
-              "won't": "wunt",
-              "we'll": "wayL",
+      const replacements = {
+        show: "shuah ",
+        "don't": "(h)dunt",
+        "can't": "gund",
+        "Can't": "gund",
+        dont: "(h)doo-ant",
+        cant: "gund",
+        "won't": "wunt",
+        "we'll": "wayL",
 
-              wont: "wunt",
-              "doesn't": "dah-znd",
-              broken: "bruh-ah-gehn",
-              look: "lug",
-              could: "kud",
-              only: "unluh",
+        wont: "wunt",
+        "doesn't": "dah-znd",
+        broken: "bruh-ah-gehn",
+        look: "lug",
+        could: "kud",
+        only: "unluh",
 
-      i: "huh",
-              night: "hNuhd",
-              highway: "huh-wee",
-              find: "vuhnd",
-              like: "lug",
-         eye: "huh",
-              eyes: "huhz",
-              tonight: "toe-nuhd",
-              why: "whuh",
-              my: "muh",
-              myself: "muh-siv",
-           by: "(m)buh",
+        i: "huh",
+        night: "hNuhd",
+        highway: "huh-wee",
+        find: "vuhnd",
+        like: "lug",
+        eye: "huh",
+        eyes: "huhz",
+        tonight: "toe-nuhd",
+        why: "whuh",
+        my: "muh",
+        myself: "muh-siv",
+        by: "(m)buh",
 
+        used: "(h)yohzd",
+        use: "(h)yohz",
 
-              used: "(h)yohzd",
-              use: "(h)yohz",
+        stand: "(z)Dahnd$%",
 
-              stand: "(z)Dahnd$%",
+        darlin: "(n)Dah-Lehn$%",
+        darling: "(n)Dah-Lehn$%",
+        "darlin'": "(n)Dah-Lehn$%",
 
-              darlin: "(n)Dah-Lehn$%",
-              darling: "(n)Dah-Lehn$%",
-              "darlin'": "(n)Dah-Lehn$%",
+        her: "hah-ayr",
+        girl: "(n)gah-aa-rl",
+        first: "vehzd",
+        work: "(h)wah-ayg",
+        word: "(h)wah-ayd",
+        world: "(h)wah-ayld",
 
+        learn: "Lah-ayn",
 
-              her: "hah-ayr",
-              girl: "(n)gah-aa-rl",
-              first: "vehzd",
-              work: "(h)wah-ayg",
-              word: "(h)wah-ayd",
-              world: "(h)wah-ayld",
+        love: "(h)lahv",
+        what: "(h)wah-d",
+        one: "(h)wah-n",
+        come: "gahm",
+        over: "oo-uh-vah",
 
-              learn: "Lah-ayn",
+        around: "ah-rahnd",
+        was: "(h)wahz",
+        call: "(n)gahl",
+        got: "(n)gad",
+        talk: "(n)dag",
+        dark: "(n)dag",
+        california: "gahLehVurnya",
 
-              love: "(h)lahv",
-              what: "(h)wah-d",
-              one: "(h)wah-n",
-              come: "gahm",
-              over: "oo-uh-vah",
+        and: "ahnd",
 
-              around: "ah-rahnd",
-              was: "(h)wahz",
-              call: "(n)gahl",
-              got: "(n)gad",
-              talk: "(n)dag",
-              dark: "(n)dag",
-              california: "gahLehVurnya",
+        end: "(h)and",
 
-              and: "ahnd",
+        yea: "yaa",
 
-              end: "(h)and",
+        matter: "(h)mah-dahr",
 
-              yea: "yaa",
+        power: "(m)bahwih",
+        that: "thad",
+        had: "hahd",
+        have: "hahV",
+        on: "han",
+        said: "zad",
+        best: "mBast",
+        "jessie's": "jyazz-ayz",
+        "Jessie's": "jyazz-ayz",
+        jessies: "jyazz-ayz",
+        Jessies: "jyazz-ayz",
+        wet: "(h)wat",
+        desert: "(n)Daz-Ahd",
 
-              matter: "(h)mah-dahr",
+        in: "(h)ehn",
+        him: "(h)ehm",
+        wish: "(h)wehsh",
+        with: "(h)wehth",
+        six: "zehx",
+        day: "(n)dih",
+        way: "(h)wih",
+        where: "(h)wihr",
+        players: "(m)BLih-ahz",
+        say: "zih",
+        straight: "(z)drihd",
+        stay: "zdih",
+        baby: "bih-bay",
+        maybe: "mih-bay",
+        change: "chgeeng",
 
-              power: "(m)bahwih",
-              that: "thad",
-              had: "hahd",
-              have: "hahV",
-              on: "han",
-              said: "zad",
-              best: "mBast",
-              "jessie's": "jyazz-ayz",
-              "Jessie's": "jyazz-ayz",
-              jessies: "jyazz-ayz",
-              Jessies: "jyazz-ayz",
-              wet: "(h)wat",
-              in: "(h)ehn",
-              him: "(h)ehm",
-              wish: "(h)wehsh",
-              with: "(h)wehth",
-              six: "zehx",
-              day: "(n)dih",
-              way: "(h)wih",
-              where: "(h)wihr",
-              players: "(m)BLih-ahz",
-              say: "zih",
-              straight: "(z)drihd",
-              stay: "zdih",
-              change: "chgeeng",
+        one: "hoo-WahN",
+        done: "(n)Doo(w)ahN",
 
-              one: "hoo-WahN",
-              done: "(n)Doo(w)ahN",
-
-                   me: "(h)may",
-              see: "zay",
-            we: "hway",
+        me: "(h)may",
+        see: "zay",
+        we: "hway",
         enough: "ayNahv",
-      she: "shay",
-              easy: "(h)ayZay",
-              feel: "vayL",
-              feelin: "vayLehn",
-              feeling: "vayLehn",
-              breathe: "mBrayth",
-              feet: "vayd",
-              beach: "(m)baych(g)",
-              people: "(m)bay-bah",
-              real: "(h)ray",
-              reach: "(h)raych",
-              too: "doe",
-              you: "(h)yoh",
-              who: "hoe",
-              cool: "(n)gol",
-              warm: "(h)waM",
+        she: "shay",
+        easy: "(h)ayZay",
+        feel: "vayL",
+        feelin: "vayLehn",
+        feeling: "vayLehn",
+        breathe: "mBrayth",
+        feet: "vayd",
+        beach: "(m)baych(g)",
+        be: "(m)bay",
+        me: "may",
+        people: "(m)bay-bah",
+        real: "(h)ray",
+        reach: "(h)raych",
+        too: "doe",
+        you: "(h)yoh",
+        who: "hoe",
+        cool: "(n)gol",
+        warm: "(h)waM",
 
+        tommy: "(n)Dammay",
+        Tommy: "(n)Dammay",
+        down: "dahn",
+        give: "gehv",
+        live: "hLehv",
 
-              tommy: "(n)Dammay",
-              Tommy: "(n)Dammay",
-              down: "dahn",
-              give: "gehv",
-              live: "hLehv",
+        well: "wal",
+        head: "had",
+        dead: "dad",
 
-              well: "wal",
-              head: "had",
-              dead: "dad",
+        know: "(h)noew",
+        no: "(h)Nuh-oow",
+        your: "yo-ewR",
+        go: "(n)guh-ah",
+        cry: "(n)gRo-ew",
 
-              know: "(h)noew",
-              no: "(h)Nuh-oow",
-              your: "yo-ewR",
-              go: "(n)guh-ah",
-              cry: "(n)gRo-ew",
+        start: "zDad",
+        heart: "(uh)-Had",
 
-              start: "zDad",
-              heart: "(uh)-Had",
+        touch: "(n)dahchg",
+        got: "(n)gad",
+        long: "(h)Lang",
+        strong: "zdrang",
 
-              touch: "(n)dahchg",
-              got: "(n)gad",
-              long: "(h)Lang",
-              strong: "zdrang",
-
-                   was: "hwaz",
-              Life: "(h)LahV",
-              Live: "(h)Lehv",
-              living: "(h)LehVain",
-              Lonely: "(h)Lewun-Lay",
-              lonely: "(h)Lewun-Lay",
+        was: "hwaz",
+        Life: "(h)LahV",
+        Live: "(h)Lehv",
+        living: "(h)LehVain",
+        Lonely: "(h)Lewun-Lay",
+        lonely: "(h)Lewun-Lay",
 
         just: "(n)joo-ahzd",
-              took: "(n)dew-Ug",
+        took: "(n)dew-Ug",
 
         Any: "ehNay",
-              if: "yehv",
-              compete: "galm-bayd",
-              complete: "galm-bLayd",
-            };
+        if: "yehv",
+        compete: "galm-bayd",
+        complete: "galm-bLayd",
+      };
 
-            function transformWord(event) {
-              const originalWord = event.target.textContent.toLowerCase();
-              const replacementWord = replacements[originalWord];
+      function transformWord(event) {
+        const originalWord = event.target.textContent.toLowerCase();
+        const replacementWord = replacements[originalWord];
 
-              if (replacementWord) {
-                event.target.innerHTML = replacementWord;
-                event.target.classList.add("highlighted");
-                event.target.removeEventListener("click", transformWord);
-              }
-            }
+        if (replacementWord) {
+          event.target.innerHTML = replacementWord;
+          event.target.classList.add("highlighted");
+          event.target.removeEventListener("click", transformWord);
+        }
+      }
 
-            function markWords() {
-              let inputText = document.getElementById("inputText").value;
+      function markWords() {
+        let inputText = document.getElementById("inputText").value;
 
-              for (let word in replacements) {
-                const regex = new RegExp(`\\b${word}\\b`, "gi");
-                inputText = inputText.replace(regex, function (matched) {
-                  return `<span onclick="transformWord(event)">${matched}</span>`;
-                });
-              }
+        for (let word in replacements) {
+          const regex = new RegExp(`\\b${word}\\b`, "gi");
+          inputText = inputText.replace(regex, function (matched) {
+            return `<span onclick="transformWord(event)">${matched}</span>`;
+          });
+        }
 
-              document.getElementById("outputText").innerHTML = inputText;
-            }
+        document.getElementById("outputText").innerHTML = inputText;
+      }
     </script>
   </body>
 </html>
