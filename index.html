@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Replacer for vocals</title>
+    <style>
+      .highlighted {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="inputText"><h2>Enter your lyric section:</h2></label>
+    <textarea id="inputText" rows="15" cols="40"></textarea><br />
+    <button onclick="markWords()">Belt it!</button>
+    <h3>click on your problem words for modifications:</h3>
+    <pre id="outputText"></pre>
+
+    <script>
+            const replacements = {
+              show: "shuah ",
+              "don't": "(h)dunt",
+              "can't": "gund",
+              "Can't": "gund",
+              dont: "(h)doo-ant",
+              cant: "gund",
+              "won't": "wunt",
+              "we'll": "wayL",
+
+              wont: "wunt",
+              "doesn't": "dah-znd",
+              broken: "bruh-ah-gehn",
+              look: "lug",
+              could: "kud",
+              only: "unluh",
+
+      i: "huh",
+              night: "hNuhd",
+              highway: "huh-wee",
+              find: "vuhnd",
+              like: "lug",
+         eye: "huh",
+              eyes: "huhz",
+              tonight: "toe-nuhd",
+              why: "whuh",
+              my: "muh",
+              myself: "muh-siv",
+           by: "(m)buh",
+
+
+              used: "(h)yohzd",
+              use: "(h)yohz",
+
+              stand: "(z)Dahnd$%",
+
+              darlin: "(n)Dah-Lehn$%",
+              darling: "(n)Dah-Lehn$%",
+              "darlin'": "(n)Dah-Lehn$%",
+
+
+              her: "hah-ayr",
+              girl: "(n)gah-aa-rl",
+              first: "vehzd",
+              work: "(h)wah-ayg",
+              word: "(h)wah-ayd",
+              world: "(h)wah-ayld",
+
+              learn: "Lah-ayn",
+
+              love: "(h)lahv",
+              what: "(h)wah-d",
+              one: "(h)wah-n",
+              come: "gahm",
+              over: "oo-uh-vah",
+
+              around: "ah-rahnd",
+              was: "(h)wahz",
+              call: "(n)gahl",
+              got: "(n)gad",
+              talk: "(n)dag",
+              dark: "(n)dag",
+              california: "gahLehVurnya",
+
+              and: "ahnd",
+
+              end: "(h)and",
+
+              yea: "yaa",
+
+              matter: "(h)mah-dahr",
+
+              power: "(m)bahwih",
+              that: "thad",
+              had: "hahd",
+              have: "hahV",
+              on: "han",
+              said: "zad",
+              best: "mBast",
+              "jessie's": "jyazz-ayz",
+              "Jessie's": "jyazz-ayz",
+              jessies: "jyazz-ayz",
+              Jessies: "jyazz-ayz",
+              wet: "(h)wat",
+              in: "(h)ehn",
+              him: "(h)ehm",
+              wish: "(h)wehsh",
+              with: "(h)wehth",
+              six: "zehx",
+              day: "(n)dih",
+              way: "(h)wih",
+              where: "(h)wihr",
+              players: "(m)BLih-ahz",
+              say: "zih",
+              straight: "(z)drihd",
+              stay: "zdih",
+              change: "chgeeng",
+
+              one: "hoo-WahN",
+              done: "(n)Doo(w)ahN",
+
+                   me: "(h)may",
+              see: "zay",
+            we: "hway",
+        enough: "ayNahv",
+      she: "shay",
+              easy: "(h)ayZay",
+              feel: "vayL",
+              feelin: "vayLehn",
+              feeling: "vayLehn",
+              breathe: "mBrayth",
+              feet: "vayd",
+              beach: "(m)baych(g)",
+              people: "(m)bay-bah",
+              real: "(h)ray",
+              reach: "(h)raych",
+              too: "doe",
+              you: "(h)yoh",
+              who: "hoe",
+              cool: "(n)gol",
+              warm: "(h)waM",
+
+
+              tommy: "(n)Dammay",
+              Tommy: "(n)Dammay",
+              down: "dahn",
+              give: "gehv",
+              live: "hLehv",
+
+              well: "wal",
+              head: "had",
+              dead: "dad",
+
+              know: "(h)noew",
+              no: "(h)Nuh-oow",
+              your: "yo-ewR",
+              go: "(n)guh-ah",
+              cry: "(n)gRo-ew",
+
+              start: "zDad",
+              heart: "(uh)-Had",
+
+              touch: "(n)dahchg",
+              got: "(n)gad",
+              long: "(h)Lang",
+              strong: "zdrang",
+
+                   was: "hwaz",
+              Life: "(h)LahV",
+              Live: "(h)Lehv",
+              living: "(h)LehVain",
+              Lonely: "(h)Lewun-Lay",
+              lonely: "(h)Lewun-Lay",
+
+        just: "(n)joo-ahzd",
+              took: "(n)dew-Ug",
+
+        Any: "ehNay",
+              if: "yehv",
+              compete: "galm-bayd",
+              complete: "galm-bLayd",
+            };
+
+            function transformWord(event) {
+              const originalWord = event.target.textContent.toLowerCase();
+              const replacementWord = replacements[originalWord];
+
+              if (replacementWord) {
+                event.target.innerHTML = replacementWord;
+                event.target.classList.add("highlighted");
+                event.target.removeEventListener("click", transformWord);
+              }
+            }
+
+            function markWords() {
+              let inputText = document.getElementById("inputText").value;
+
+              for (let word in replacements) {
+                const regex = new RegExp(`\\b${word}\\b`, "gi");
+                inputText = inputText.replace(regex, function (matched) {
+                  return `<span onclick="transformWord(event)">${matched}</span>`;
+                });
+              }
+
+              document.getElementById("outputText").innerHTML = inputText;
+            }
+    </script>
+  </body>
+</html>
